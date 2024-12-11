@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Letter Memorisation Trainer
 
-## Getting Started
+## Project Overview
+The **Letter Memorisation Trainer** is a web-based application designed to test and improve users' ability to memorise associations between letters and numbers. The app challenges the user by displaying letters sequentially and prompting them to select the corresponding number through a circular button interface. At the end of each round, the application provides detailed results, showing incorrect answers along with the correct ones.
 
-First, run the development server:
+## Features
+- **Interactive Button Input Mode**: Users select their answers using buttons arranged in a circular interface.
+- **Round-by-Round Feedback**: After each round, the app displays:
+  - A summary of incorrect answers.
+  - The correct answers for any mistakes.
+- **Letter-Number Associations**: Predefined associations between letters and numbers are shuffled each round to keep the challenge dynamic.
+- **Responsive Design**: Optimised for various screen sizes, ensuring usability across devices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How It Works
+1. A letter is displayed at the centre of the screen.
+2. Users select the corresponding number by clicking on the correct button in the circular interface.
+3. At the end of the round, results are displayed, highlighting:
+   - Incorrect answers.
+   - The correct answers for each mistake.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
+### Prerequisites
+- A modern web browser (e.g., Chrome, Firefox, Edge).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Steps to Run
+1. Download or clone the project repository.
+   ```bash
+   git clone https://github.com/KittatamSaisaard/clock-letter-memo-trainer.git
+   ```
+2. Open the `index.html` file in your preferred browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## User Interface
+- **Letter Display**: Displays the current letter to memorise.
+- **Circular Button Grid**: Buttons for selecting the corresponding number.
+- **Feedback Section**: Displays results at the end of each round, highlighting errors and providing correct answers.
 
-## Learn More
+## Customisation
+- Modify the `letters` and `correctAnswers` arrays in the script to change the letter-number associations.
+- Adjust button positioning or layout in the `initializeButtons` function in the script.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
+Feel free to submit issues or contribute enhancements via pull requests. Ensure code quality by following best practices.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is open-source and available under the [MIT License](LICENSE).
