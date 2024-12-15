@@ -1,29 +1,31 @@
-# Letter Memorisation Trainer
+# Clock Letter Memo Trainer
 
 ## Project Overview
-The **Letter Memorisation Trainer** is a web-based application designed to test and improve users' ability to memorise associations between letters and numbers. The app challenges the user by displaying letters sequentially and prompting them to select the corresponding number through a circular button interface. At the end of each round, the application provides detailed results, showing incorrect answers along with the correct ones.
+The **Clock Letter Memo Trainer** is a web-based application designed to help users memorise and strengthen their associations between letters and clock hour hands. This tool is especially useful for those practising the no-flip method for solving a Rubik's Clock. 
+
+The app displays letters corresponding to clock hour positions (A–K for 1–11 and O for 0) and challenges users to select the correct hour by clicking on a circular button interface. After each round, users receive feedback on their performance.
 
 ## Features
-- **Interactive Button Input Mode**: Users select their answers using buttons arranged in a circular interface.
-- **Round-by-Round Feedback**: After each round, the app displays:
+- **Interactive Button Input Mode**: Users select the clock hour associated with a displayed letter using a circular button interface.
+- **Round-by-Round Feedback**: At the end of each round, the app provides:
   - A summary of incorrect answers.
-  - The correct answers for any mistakes.
-- **Letter-Number Associations**: Predefined associations between letters and numbers are shuffled each round to keep the challenge dynamic.
-- **Responsive Design**: Optimised for various screen sizes, ensuring usability across devices.
+  - The correct hour-hand position for any mistakes.
+- **Dynamic Challenge**: Letters are shuffled each round to keep the exercise engaging and varied.
+- **Responsive Design**: Optimised for all screen sizes, making it accessible on desktops, tablets, and smartphones.
 
 ## How It Works
-1. A letter is displayed at the centre of the screen.
-2. Users select the corresponding number by clicking on the correct button in the circular interface.
-3. At the end of the round, results are displayed, highlighting:
-   - Incorrect answers.
-   - The correct answers for each mistake.
+1. A letter (e.g., A, G, or O) is displayed at the centre of the screen.
+2. Users click the button corresponding to the correct clock hour for the displayed letter.
+3. At the end of each round, the app provides feedback:
+   - Incorrect selections.
+   - The correct hour-hand positions for any errors.
 
 ## Setup Instructions
 ### Prerequisites
 - A modern web browser (e.g., Chrome, Firefox, Edge).
 
 ### Steps to Run
-1. Download or clone the project repository.
+1. Download or clone the project repository:
    ```bash
    git clone https://github.com/KittatamSaisaard/clock-letter-memo-trainer.git
    ```
