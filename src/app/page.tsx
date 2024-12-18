@@ -1,35 +1,44 @@
-import Image from "next/image";
+// import { useEffect } from "react";
+import Instructions from './Instructions';
 
 export default function Home() {
 
+  const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"];
   const correctAnswers = ["1", "2", "3", "4", "5", "6", "-5", "-4", "-3", "-2", "-1", "0"];
 
   const radius = 140; // Radius of the circle
   const centerX = 125; // Center X of the container
   const centerY = 125; // Center Y of the container
 
+  let index = 0; // Current letter
+  let currentLetter;
 
+  function shuffle(array: number[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const initializeGame = () => {
+    let randomOrder = shuffle([...Array(letters.length).keys()]);
+    index = 0;
+    currentLetter = letters[randomOrder[index]]; // Display the correct initial letter
+    console.log(currentLetter);
+  };
+
+  // useEffect(() => {
+  //   initializeGame();
+  // }, [])
 
 
   return (
     <div className="flex flex-col items-center">
       {/* Title */}
       <h1 className="text-center text-6xl p-3 pb-12">Clock Letter Memo Trainer</h1>
-      <div className="p-3">
-        {/* Instructions */}
-        <h3 className="text-center text-3xl">Instructions:</h3>
-        <ul className="list-disc list-inside text-left">
-          <li>
-          A letter will appear on the screen.
-          </li>
-          <li>
-          Select the clock hour corresponding to the letter by clicking the correct button (A-F = 1-6, G-K = 7-11, O = 0).
-          </li>
-          <li>
-          Review the results after each round to see any mistakes and the correct answers.
-          </li>
-        </ul>
-      </div>
+      {/* Instructions */}
+      <Instructions />
 
       {/* Letter */}
       <div className="text-5xl m-5">A</div>
