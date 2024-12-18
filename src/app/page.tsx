@@ -40,7 +40,8 @@ export default function Home() {
           const x = centerX + radius * Math.cos(angle);
           const y = centerY + radius * Math.sin(angle);
 
-          return(<button 
+          return(<button
+            key={index} 
             style={{left: `${x}px`, top: `${y}px`}} 
             className="absolute w-[50px] h-[50px] text-lg border-none rounded-full bg-blue-500 text-white"
           >{number}</button>)
