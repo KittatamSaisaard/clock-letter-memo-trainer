@@ -31,8 +31,11 @@ export default function Home() {
         </ul>
       </div>
 
+      {/* Letter */}
+      <div className="text-5xl m-5">A</div>
+
       {/* Buttons */}
-      <div id="buttons-container" className="relative w-[300px] h-[300px] mt-12 flex items-center justify-center">
+      <div className="relative w-[300px] h-[300px] mt-12 flex items-center justify-center">
 
       {
         correctAnswers.map((number, index) => {
