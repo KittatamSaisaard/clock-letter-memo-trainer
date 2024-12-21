@@ -4,6 +4,7 @@ import React, { useEffect, useImperativeHandle, useState, forwardRef } from "rea
 
 export interface LetterRef {
   displayNextLetter: () => void;
+  getCurrentLetter: () => string; 
 }
 
 const Letter = forwardRef((_, ref) => {
@@ -32,7 +33,8 @@ const Letter = forwardRef((_, ref) => {
     }
 
     useImperativeHandle(ref, () => ({
-      displayNextLetter
+      displayNextLetter,
+      getCurrentLetter: () => currentLetter
     }));
 
     useEffect(() => {

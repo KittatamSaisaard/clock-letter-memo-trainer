@@ -1,7 +1,6 @@
 import Instructions from './Instructions';
-import Letter from './Letter';
 import ButtonWrapper from './ButtonWrapper';
-import Message from './Message';
+
 
 export default function Home() {
 
@@ -22,9 +21,6 @@ export default function Home() {
 
       {/* Buttons */}
       <ButtonWrapper />
-
-      {/* Message (Win/Lose) */}
-      <Message />
       <div>
 
       </div>

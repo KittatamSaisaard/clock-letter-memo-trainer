@@ -1,15 +1,61 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Letter, { LetterRef } from "./Letter";
+import Message from './Message';
 
 export default function ButtonWrapper() {
   const letterRef = useRef<LetterRef>(null);
+  const [message, setMessage] = useState<string>("");
 
-  function handleInput() {
+    //Map numbers to corresponding letters
+    const numberToLetterMap: Record<string, string> = {
+      "1": "A",
+      "2": "B",
+      "3": "C",
+      "4": "D",
+      "5": "E",
+      "6": "F",
+      "-5": "G",
+      "-4": "H",
+      "-3": "I",
+      "-2": "J",
+      "-1": "K",
+      "0": "O",
+    };
+
+    //Map letters to corresponding numbers
+    const letterToNumberMap: Record<string, string> = {
+      A: "1",
+      B: "2",
+      C: "3",
+      D: "4",
+      E: "5",
+      F: "6",
+      G: "-5",
+      H: "-4",
+      I: "-3",
+      J: "-2",
+      K: "-1",
+      O: "0",
+    };
+
+  function handleInput(value: string) {
+
+    // Check if the clicked value matches the correct value for the current letter
+    console.log(numberToLetterMap[value.toString()]);
+    if (letterRef.current) {
+    const correctValue = numberToLetterMap[value.toString()];
+    const currentLetter = letterRef.current.getCurrentLetter();
+    if (correctValue === currentLetter) {
+      setMessage("Correct");
+    } else {
+      setMessage(`Incorrect! The correct answer is: ${letterToNumberMap[currentLetter]}`);
+    }
+    }
+    
     setTimeout(() => {
       if (letterRef.current) {
-        console.log('test')
         letterRef.current.displayNextLetter();
       }
     }, 1000);
@@ -17,7 +63,9 @@ export default function ButtonWrapper() {
 
   return (
     <div>
-      <Letter ref={letterRef} />
+     <Letter
+        ref={letterRef}
+      />
 
       <div className="relative w-[300px] h-[300px] mt-12 flex items-center justify-center">
         {["1", "2", "3", "4", "5", "6", "-5", "-4", "-3", "-2", "-1", "0"].map((number, index) => {
@@ -33,13 +81,16 @@ export default function ButtonWrapper() {
               key={index}
               style={{ left: `${x}px`, top: `${y}px` }}
               className="absolute w-[50px] h-[50px] text-lg border-none rounded-full bg-blue-500 text-white"
-              onClick={handleInput}
+              onClick={() => handleInput(number)}
             >
               {number}
             </button>
           );
         })}
       </div>
+
+      {/* Message (Win/Lose) */}
+      <Message text={message} />
     </div>
   );
 }
