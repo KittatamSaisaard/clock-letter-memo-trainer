@@ -7,9 +7,6 @@ The app displays letters corresponding to clock hour positions (A–K for 1–11
 
 ## Features
 - **Interactive Button Input Mode**: Users select the clock hour associated with a displayed letter using a circular button interface.
-- **Round-by-Round Feedback**: At the end of each round, the app provides:
-  - A summary of incorrect answers.
-  - The correct hour-hand position for any mistakes.
 - **Dynamic Challenge**: Letters are shuffled each round to keep the exercise engaging and varied.
 - **Responsive Design**: Optimised for all screen sizes, making it accessible on desktops, tablets, and smartphones.
 
