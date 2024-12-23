@@ -7,9 +7,9 @@ export interface LetterRef {
   getCurrentLetter: () => string; 
 }
 
-const Letter = forwardRef((_, ref) => {
+const Letter = forwardRef<LetterRef>((_, ref) => {
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"];
-    let index = 0; // Current letter
+    const index = 0; // Current letter
     const [currentLetter, setCurrentLetter] = useState('A');
 
     function shuffle(array: number[]) {
@@ -39,11 +39,14 @@ const Letter = forwardRef((_, ref) => {
 
     useEffect(() => {
       initializeGame();
-    }, [])
+    }, )
 
   return (
         <div className="text-center text-5xl m-5">{currentLetter}</div>
   );
 });
+
+//Assigning displayName for better debugging
+Letter.displayName = "Letter";
 
 export default Letter;
