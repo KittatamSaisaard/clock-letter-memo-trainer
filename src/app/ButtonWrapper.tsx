@@ -45,13 +45,13 @@ export default function ButtonWrapper() {
     // Check if the clicked value matches the correct value for the current letter
     console.log(numberToLetterMap[value.toString()]);
     if (letterRef.current) {
-    const correctValue = numberToLetterMap[value.toString()];
-    const currentLetter = letterRef.current.getCurrentLetter();
-    if (correctValue === currentLetter) {
-      setMessage("Correct");
-    } else {
-      setMessage(`Incorrect! The correct answer is: ${letterToNumberMap[currentLetter]}`);
-    }
+      const correctValue = numberToLetterMap[value.toString()];
+      const currentLetter = letterRef.current.getCurrentLetter();
+      if (correctValue === currentLetter) {
+        setMessage("Correct");
+      } else {
+        setMessage(`Incorrect! The correct answer is: ${letterToNumberMap[currentLetter]}`);
+      }
     }
     
     setTimeout(() => {

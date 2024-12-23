@@ -7,7 +7,7 @@ export interface LetterRef {
   getCurrentLetter: () => string; 
 }
 
-const Letter = forwardRef<LetterRef>((_, ref) => {
+const Letter = forwardRef((_, ref) => {
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"];
     const index = 0; // Current letter
     const [currentLetter, setCurrentLetter] = useState('A');
@@ -39,14 +39,15 @@ const Letter = forwardRef<LetterRef>((_, ref) => {
 
     useEffect(() => {
       initializeGame();
-    }, )
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
   return (
         <div className="text-center text-5xl m-5">{currentLetter}</div>
   );
 });
 
-//Assigning displayName for better debugging
+// Assigning displayName for better debugging
 Letter.displayName = "Letter";
 
 export default Letter;
