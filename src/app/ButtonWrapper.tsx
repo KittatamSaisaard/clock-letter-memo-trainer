@@ -6,6 +6,7 @@ import Message from './Message';
 
 export default function ButtonWrapper() {
   const letterRef = useRef<LetterRef>(null);
+  const [messageColor, setMessageColor] = useState("black");
   const [message, setMessage] = useState<string>("");
 
     //Map numbers to corresponding letters
@@ -49,8 +50,10 @@ export default function ButtonWrapper() {
       const currentLetter = letterRef.current.getCurrentLetter();
       if (correctValue === currentLetter) {
         setMessage("Correct");
+        setMessageColor("green");
       } else {
         setMessage(`Incorrect! The correct answer is: ${letterToNumberMap[currentLetter]}`);
+        setMessageColor("red");
       }
     }
     
@@ -90,7 +93,7 @@ export default function ButtonWrapper() {
       </div>
 
       {/* Message (Win/Lose) */}
-      <Message text={message} />
+      <Message text={message} color={messageColor} />
     </div>
   );
 }
