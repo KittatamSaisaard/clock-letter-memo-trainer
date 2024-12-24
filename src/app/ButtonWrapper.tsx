@@ -59,6 +59,8 @@ export default function ButtonWrapper() {
     
     setTimeout(() => {
       if (letterRef.current) {
+        setMessageColor("black");
+        setMessage("");
         letterRef.current.displayNextLetter();
       }
     }, 1000);
