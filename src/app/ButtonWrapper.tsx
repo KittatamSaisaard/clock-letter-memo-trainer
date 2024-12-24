@@ -67,7 +67,7 @@ export default function ButtonWrapper() {
   }
 
   return (
-    <div>
+    <div className="max-w-[300px]">
      <Letter
         ref={letterRef}
       />
