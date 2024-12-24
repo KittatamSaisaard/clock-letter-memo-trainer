@@ -10,7 +10,7 @@ export interface LetterRef {
 const Letter = forwardRef((_, ref) => {
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"];
     const index = 0; // Current letter
-    const [currentLetter, setCurrentLetter] = useState('A');
+    const [currentLetter, setCurrentLetter] = useState('');
 
     function shuffle(array: number[]) {
         for (let i = array.length - 1; i > 0; i--) {
