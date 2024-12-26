@@ -8,6 +8,7 @@ export default function ButtonWrapper() {
   const letterRef = useRef<LetterRef>(null);
   const [messageColor, setMessageColor] = useState("black");
   const [message, setMessage] = useState<string>("");
+  const [isProcessing, setProcessing] = useState(false); //Prevents overlapping input handling
 
     //Map numbers to corresponding letters
     const numberToLetterMap: Record<string, string> = {
@@ -43,6 +44,10 @@ export default function ButtonWrapper() {
 
   function handleInput(value: string) {
 
+    if (isProcessing) return;
+
+    setProcessing(true);
+
     // Check if the clicked value matches the correct value for the current letter
     console.log(numberToLetterMap[value.toString()]);
     if (letterRef.current) {
@@ -62,6 +67,7 @@ export default function ButtonWrapper() {
         setMessageColor("black");
         setMessage("");
         letterRef.current.displayNextLetter();
+        setProcessing(false);
       }
     }, 1000);
   }
