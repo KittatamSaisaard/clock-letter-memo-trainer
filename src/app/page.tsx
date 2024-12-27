@@ -1,21 +1,15 @@
-import Instructions from './Instructions';
-import ButtonWrapper from './ButtonWrapper';
-
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
-      {/* Title */}
-      <h1 className="text-center text-6xl p-3 pb-12">Clock Letter Memo Trainer</h1>
-
-      {/* Instructions */}
-      <Instructions />
-
-      {/* Buttons */}
-      <ButtonWrapper />
-      <div>
-
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-6">Cubing Tools</h1>
+      <p className="text-lg text-gray-700 mb-12">
+        Various cubing tools to help you get better at cubing!
+      </p>
+      <Link className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600" href="/clock-letter-memo-trainer">
+        Clock Letter Memo Trainer
+      </Link>
     </div>
   );
 }
