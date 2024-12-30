@@ -20,7 +20,7 @@ export default function ClockLetterMemoTrainer() {
       <ButtonWrapper />
 
       {/* Back to Home Button */}
-      <Link href="/" className="px-4 py-2 bg-blue-500 text-white rounded">
+      <Link href="/" className="mb-6 px-4 py-2 bg-blue-500 text-white rounded">
         Main Menu
       </Link>
     </div>
