@@ -9,7 +9,7 @@ export default function ClockLetterMemoTrainer() {
   };
 
   return (
-    <div className="flex flex-col items-center relative">
+    <div className="flex flex-col items-center relative min-h-screen bg-gray-100">
       {/* Back to Home Button */}
       <Link href="/" className="absolute top-5 left-5 px-4 py-2 bg-blue-500 text-white rounded">
         Main Menu
