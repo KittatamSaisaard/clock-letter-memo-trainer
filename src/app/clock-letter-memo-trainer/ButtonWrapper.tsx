@@ -49,7 +49,6 @@ export default function ButtonWrapper() {
     setProcessing(true);
 
     // Check if the clicked value matches the correct value for the current letter
-    console.log(numberToLetterMap[value.toString()]);
     if (letterRef.current) {
       const correctValue = numberToLetterMap[value.toString()];
       const currentLetter = letterRef.current.getCurrentLetter();
