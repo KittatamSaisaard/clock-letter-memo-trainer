@@ -29,7 +29,6 @@ const Letter = forwardRef((_, ref) => {
     function displayNextLetter() {
       randomOrder = shuffle([...Array(letters.length).keys()]);
       setCurrentLetter(letters[randomOrder[index]]);
-      // message.textContent = '';
     }
 
     useImperativeHandle(ref, () => ({
