@@ -10,37 +10,16 @@ export default function ButtonWrapper() {
   const [message, setMessage] = useState<string>("");
   const [isProcessing, setProcessing] = useState(false); //Prevents overlapping input handling
 
-    //Map numbers to corresponding letters
-    const numberToLetterMap: Record<string, string> = {
-      "1": "A",
-      "2": "B",
-      "3": "C",
-      "4": "D",
-      "5": "E",
-      "6": "F",
-      "-5": "G",
-      "-4": "H",
-      "-3": "I",
-      "-2": "J",
-      "-1": "K",
-      "0": "O",
-    };
+  //Unified mapping: number-to-letter and letter-to-number
+  const mappings: Record<string, string> = {
+    "1": "A", "2": "B", "3": "C", "4": "D", "5": "E", "6": "F",
+    "-5": "G", "-4": "H", "-3": "I", "-2": "J", "-1": "K", "0": "O",
+  };
 
-    //Map letters to corresponding numbers
-    const letterToNumberMap: Record<string, string> = {
-      A: "1",
-      B: "2",
-      C: "3",
-      D: "4",
-      E: "5",
-      F: "6",
-      G: "-5",
-      H: "-4",
-      I: "-3",
-      J: "-2",
-      K: "-1",
-      O: "0",
-    };
+  //Utility functions for lookup
+  const getLetterForNumber = (number: string) => mappings[number];
+  const getNumberForLetter = (letter: string) => 
+    Object.keys(mappings).find(key => mappings[key] === letter);
 
   function handleInput(value: string) {
 
@@ -50,13 +29,14 @@ export default function ButtonWrapper() {
 
     // Check if the clicked value matches the correct value for the current letter
     if (letterRef.current) {
-      const correctValue = numberToLetterMap[value.toString()];
+      const correctValue = getLetterForNumber(value);;
       const currentLetter = letterRef.current.getCurrentLetter();
       if (correctValue === currentLetter) {
         setMessage("Correct");
         setMessageColor("green");
       } else {
-        setMessage(`Incorrect! The correct answer is: ${letterToNumberMap[currentLetter]}`);
+        const correctNumber = getNumberForLetter(currentLetter);
+        setMessage(`Incorrect! The correct answer is: ${correctNumber}`);
         setMessageColor("red");
       }
     }
