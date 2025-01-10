@@ -25,12 +25,19 @@ The app displays letters corresponding to clock hour positions (A–K for 1–11
    ```bash
    git clone https://github.com/KittatamSaisaard/clock-letter-memo-trainer.git
    ```
-2. Open the `index.html` file in your preferred browser.
+2. Install packages using (install node.js and npm if you haven't already):
+   ```bash
+   npm install
+   ```
+3. Run the development build using:
+   ```bash
+   npm run dev
+   ```
 
 ## User Interface
 - **Letter Display**: Displays the current letter to memorise.
 - **Circular Button Grid**: Buttons for selecting the corresponding number.
-- **Feedback Section**: Displays results at the end of each round, highlighting errors and providing correct answers.
+- **Feedback Section**: Displays results at the end of each click, highlighting errors and providing correct answers.
 
 ## Customisation
 - Modify the `letters` and `correctAnswers` arrays in the script to change the letter-number associations.
