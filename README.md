@@ -13,9 +13,8 @@ The app displays letters corresponding to clock hour positions (A–K for 1–11
 ## How It Works
 1. A letter (e.g., A, G, or O) is displayed at the centre of the screen.
 2. Users click the button corresponding to the correct clock hour for the displayed letter.
-3. At the end of each round, the app provides feedback:
-   - Incorrect selections.
-   - The correct hour-hand positions for any errors.
+3. After the user clicks, the app provides feedback if the answer is correct or incorrect.
+   If the answer is incorrect, thr correct answer will be displayed.
 
 ## Setup Instructions
 ### Prerequisites
