@@ -1,5 +1,7 @@
 # Clock Letter Memo Trainer
 
+Live version available: https://cubing.kittatamsaisaard.com/
+
 ## Project Overview
 The **Clock Letter Memo Trainer** is a web-based application designed to help users memorise and strengthen their associations between letters and clock hour hands. This tool is especially useful for those practising the no-flip method for solving a Rubik's Clock. 
 
