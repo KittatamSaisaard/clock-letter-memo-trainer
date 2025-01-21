@@ -53,34 +53,80 @@ export default function ButtonWrapper() {
 
   return (
     <div className="max-w-[300px]">
-     <Letter
-        ref={letterRef}
-      />
+      {isEditMode ? (
+        <div>
+          <h3 className="text-center mb-4 text-lg">Click on the characters to edit them</h3>
+          <div className="relative w-[300px] h-[300px] mt-12 flex items-center justify-center">
+            {["1", "2", "3", "4", "5", "6", "-5", "-4", "-3", "-2", "-1", "0"].map((number, index) => {
+              const radius = 140;
+              const centerX = 125;
+              const centerY = 125;
+              const angle = ((index + 1) * 2 * Math.PI) / 12 - Math.PI / 2;
+              const x = Math.round(centerX + radius * Math.cos(angle));
+              const y = Math.round(centerY + radius * Math.sin(angle));
 
-      <div className="relative w-[300px] h-[300px] mt-12 flex items-center justify-center">
-        {["1", "2", "3", "4", "5", "6", "-5", "-4", "-3", "-2", "-1", "0"].map((number, index) => {
-          const radius = 140;
-          const centerX = 125;
-          const centerY = 125;
-          const angle = ((index + 1) * 2 * Math.PI) / 12 - Math.PI / 2;
-          const x = Math.round(centerX + radius * Math.cos(angle));
-          const y = Math.round(centerY + radius * Math.sin(angle));
-
-          return (
+              return (
+                <input
+                  key={index}
+                  maxLength={maxCharLength}
+                  type="text"
+                  value={letters[index]}
+                  onChange={(e) => handleLetterChange(index, e.target.value)}
+                  style={{ left: `${x}px`, top: `${y}px` }}
+                  className="absolute w-[50px] h-[50px] text-lg border-none rounded-full text-center bg-blue-500 text-white"
+                />
+              );
+            })}
+          </div>
+          <div className="flex justify-center my-4">
             <button
-              key={index}
-              style={{ left: `${x}px`, top: `${y}px` }}
-              className="absolute w-[50px] h-[50px] text-lg border-none rounded-full bg-blue-500 text-white"
-              onClick={() => handleInput(number)}
+              onClick={saveChanges}
+              className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
             >
-              {number}
+              Save Changes
             </button>
-          );
-        })}
-      </div>
+          </div>
+        </div>
+      ) : (
+        <>
+        <Letter
+        ref={letterRef} customLetters={letters}
+        />
 
-      {/* Message (Win/Lose) */}
-      <Message text={message} color={messageColor} />
+        <div className="relative w-[300px] h-[300px] mt-12 flex items-center justify-center">
+          {["1", "2", "3", "4", "5", "6", "-5", "-4", "-3", "-2", "-1", "0"].map((number, index) => {
+            const radius = 140;
+            const centerX = 125;
+            const centerY = 125;
+            const angle = ((index + 1) * 2 * Math.PI) / 12 - Math.PI / 2;
+            const x = Math.round(centerX + radius * Math.cos(angle));
+            const y = Math.round(centerY + radius * Math.sin(angle));
+
+            return (
+              <button
+                key={index}
+                style={{ left: `${x}px`, top: `${y}px` }}
+                className="absolute w-[50px] h-[50px] text-lg border-none rounded-full bg-blue-500 text-white"
+                onClick={() => handleInput(number)}
+              >
+                {number}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Message (Win/Lose) */}
+        <Message text={message} color={messageColor} />
+        <div className="flex justify-center my-4">
+          <button
+              onClick={() => setIsEditMode(true)}
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+            >
+            Edit Letters
+          </button>
+        </div>
+        </>
+      )}
     </div>
   );
 }
