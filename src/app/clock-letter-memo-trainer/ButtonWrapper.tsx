@@ -8,7 +8,9 @@ export default function ButtonWrapper() {
   const letterRef = useRef<LetterRef>(null);
   const [messageColor, setMessageColor] = useState("black");
   const [message, setMessage] = useState<string>("");
-  const [isProcessing, setProcessing] = useState(false); //Prevents overlapping input handling
+  const [isProcessing, setProcessing] = useState(false); // Prevents overlapping input handling
+  const [letters, setLetters] = useState<string[]>(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"]);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   //Unified mapping: number-to-letter and letter-to-number
   const mappings: Record<string, string> = {
@@ -16,7 +18,7 @@ export default function ButtonWrapper() {
     "-5": "G", "-4": "H", "-3": "I", "-2": "J", "-1": "K", "0": "O",
   };
 
-  //Utility functions for lookup
+  // Utility functions for lookup
   const getLetterForNumber = (number: string) => mappings[number];
   const getNumberForLetter = (letter: string) => 
     Object.keys(mappings).find(key => mappings[key] === letter);
