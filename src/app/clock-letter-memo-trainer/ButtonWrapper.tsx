@@ -51,6 +51,22 @@ export default function ButtonWrapper() {
     }, 1000);
   }
 
+  const maxCharLength = 2; // 
+  const handleLetterChange = (index: number, value: string) => {
+    if (value.length <= maxCharLength) {
+      const updatedLetters = [...letters];
+      updatedLetters[index] = value.toUpperCase();
+      setLetters(updatedLetters);
+    }
+  };
+
+  const saveChanges = () => {
+    setIsEditMode(false);
+    if (letterRef.current) { // Refresh the display
+      letterRef.current.displayNextLetter();
+    }
+  };
+
   return (
     <div className="max-w-[300px]">
       {isEditMode ? (
