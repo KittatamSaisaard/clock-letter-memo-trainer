@@ -4,9 +4,6 @@ import Link from 'next/link';
 
 
 export default function ClockLetterMemoTrainer() {
-  const navigateToHome = () => {
-    window.location.href = '/';
-  };
 
   return (
     <div className="flex flex-col items-center relative min-h-screen bg-gray-100">
