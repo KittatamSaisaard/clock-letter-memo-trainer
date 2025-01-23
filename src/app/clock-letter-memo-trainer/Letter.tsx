@@ -7,42 +7,54 @@ export interface LetterRef {
   getCurrentLetter: () => string; 
 }
 
-const Letter = forwardRef((_, ref) => {
-    const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"];
-    const index = 0; // Current letter
-    const [currentLetter, setCurrentLetter] = useState('');
+interface LetterProps {
+  customLetters: string[];
+}
 
-    function shuffle(array: number[]) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    };
+const Letter = forwardRef<LetterRef, LetterProps>(({ customLetters }, ref) => {
+  const index = 0; // Current letter
+  const [currentLetter, setCurrentLetter] = useState("");
+  const [previousLetter, setPreviousLetter] = useState<string>("");
 
-    let randomOrder = shuffle([...Array(letters.length).keys()]);
+  function shuffle(array: number[]) {
+      for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+  };
 
-    const initializeGame = () => {   
-        setCurrentLetter(letters[randomOrder[index]]);
-    };
+  var randomIndex = Math.floor(Math.random() * customLetters.length);
 
-    function displayNextLetter() {
-      randomOrder = shuffle([...Array(letters.length).keys()]);
-      setCurrentLetter(letters[randomOrder[index]]);
+  const initializeGame = () => {
+    randomIndex = Math.floor(Math.random() * customLetters.length);
+    setCurrentLetter(customLetters[randomIndex]);
+  };
+
+  const displayNextLetter = () => {
+    let nextLetter = customLetters[randomIndex];
+
+    // Ensure the next letter is not the same as the previous one
+    while (nextLetter === previousLetter) {
+      randomIndex = Math.floor(Math.random() * customLetters.length);
+      nextLetter = customLetters[randomIndex];
     }
 
-    useImperativeHandle(ref, () => ({
-      displayNextLetter,
-      getCurrentLetter: () => currentLetter
-    }));
+    setPreviousLetter(nextLetter);
+    setCurrentLetter(nextLetter);
+  };
+  useImperativeHandle(ref, () => ({
+    displayNextLetter,
+    getCurrentLetter: () => currentLetter
+  }));
 
-    useEffect(() => {
-      initializeGame();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+  useEffect(() => {
+    initializeGame();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [customLetters]) // Reinitialize when customLetters changes
 
   return (
-        <div className="text-center text-5xl m-5">{currentLetter}</div>
+        <div className="text-center text-5xl m-5"> {currentLetter} </div>
   );
 });
 

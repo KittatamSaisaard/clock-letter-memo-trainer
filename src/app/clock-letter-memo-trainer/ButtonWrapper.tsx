@@ -12,11 +12,12 @@ export default function ButtonWrapper() {
   const [letters, setLetters] = useState<string[]>(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O"]);
   const [isEditMode, setIsEditMode] = useState(false);
 
-  //Unified mapping: number-to-letter and letter-to-number
-  const mappings: Record<string, string> = {
-    "1": "A", "2": "B", "3": "C", "4": "D", "5": "E", "6": "F",
-    "-5": "G", "-4": "H", "-3": "I", "-2": "J", "-1": "K", "0": "O",
-  };
+  // Unified mapping: number-to-character and character-to-number
+  const mappings: Record<string, string> = letters.reduce((acc, letter, index) => {
+    const number = index < 6 ? (index + 1).toString() : (-5 + (index - 6)).toString();
+    acc[number] = letter;
+    return acc;
+  }, {} as Record<string, string>);
 
   // Utility functions for lookup
   const getLetterForNumber = (number: string) => mappings[number];
