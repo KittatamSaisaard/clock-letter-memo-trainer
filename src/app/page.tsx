@@ -7,8 +7,11 @@ export default function Home() {
       <p className="text-base text-gray-700 mb-12">
         Various cubing tools to help you get better at cubing!
       </p>
-      <Link className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600" href="/clock-letter-memo-trainer">
+      <Link className="px-6 py-3 min-w-60 text-center bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600" href="/clock-letter-memo-trainer">
         Clock Letter Memo Trainer
+      </Link>
+      <Link className="my-6 px-6 py-3 min-w-60 text-center bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600" href="/">
+        Clock Simulator
       </Link>
     </div>
   );
