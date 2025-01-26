@@ -92,7 +92,7 @@ export default function ButtonWrapper() {
                   value={letters[index]}
                   onChange={(e) => handleLetterChange(index, e.target.value)}
                   style={{ left: `${x}px`, top: `${y}px` }}
-                  className="absolute w-[50px] h-[50px] text-lg border-none rounded-full text-center bg-blue-500 text-white"
+                  className="absolute w-[50px] h-[50px] text-lg border-none rounded-full text-center bg-yellow-400 text-white"
                 />
               );
             })}
