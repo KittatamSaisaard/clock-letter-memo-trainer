@@ -1,7 +1,7 @@
 import Instructions from './Instructions';
 import Link from 'next/link';
 
-export default function ClockLetterMemoTrainer() {
+export default function ClockSimualator() {
 
   return (
     <div className="flex flex-col items-center relative min-h-screen bg-gray-100">
